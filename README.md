@@ -15,6 +15,6 @@ This project allows you to create a new Spotify playlist where your saved songs 
 - Playlist Creation: a new private playlist is created in your Spotify account, and the sorted tracks are added to it
 
 #### Note
-Update the credentials in the main() function of the script from https://developer.spotify.com/dashboard:
+Update the credentials in the main() function of the script creating a new personal app from https://developer.spotify.com/dashboard:
 - client_id="CLIENT_ID"
 - client_secret="CLIENT_SECRET"
