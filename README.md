@@ -20,4 +20,4 @@ Update the credentials (lines 39 and 40 of the code) in the main() function of t
 - client_secret="CLIENT_SECRET"
 
 ## Help me make Spotify see this idea be implemented:
-## https://community.spotify.com/t5/Live-Ideas/Sorting-songs-by-album-cover-s-colors/idi-p/6897183#M315934
+### https://community.spotify.com/t5/Live-Ideas/Sorting-songs-by-album-cover-s-colors/idi-p/6897183#M315934
