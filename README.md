@@ -14,10 +14,15 @@ This project allows you to create a new Spotify playlist where your saved songs 
 - Sorting by Hue: the tracks are sorted by their album cover's hue value to create a visually organized playlist
 - Playlist Creation: a new private playlist is created in your Spotify account, and the sorted tracks are added to it
 
+### To do
+- Color-themed mini playlists
+- Add brightness and saturation as parameters to sort colors
+- Make a command-line tool
+
 #### Note
-Update the credentials (lines 39 and 40 of the code) in the main() function of the script creating a new personal app from https://developer.spotify.com/dashboard:
-- client_id="CLIENT_ID"
-- client_secret="CLIENT_SECRET"
+Update the credentials in the script creating a new personal app from https://developer.spotify.com/dashboard:
+- client_id="YOUR_CLIENT_ID"
+- client_secret="YOUR_CLIENT_SECRET"
 
 ## Help me make Spotify see this idea be implemented:
-### https://community.spotify.com/t5/Live-Ideas/Sorting-songs-by-album-cover-s-colors/idi-p/6897183#M315934
+#### https://community.spotify.com/t5/Live-Ideas/Sorting-songs-by-album-cover-s-colors/idi-p/6897183#M315934
