@@ -15,6 +15,7 @@ This project allows you to create a new Spotify playlist where your saved songs 
 - Playlist Creation: a new private playlist is created in your Spotify account, and the sorted tracks are added to it
 
 ### To do
+- Save covers/hue values locally to fasten the process
 - Color-themed mini playlists
 - Add brightness and saturation as parameters to sort colors
 - Make a command-line tool
