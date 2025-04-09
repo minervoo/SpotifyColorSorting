@@ -18,12 +18,6 @@ This project allows you to create a new Spotify playlist where your saved songs 
 - Playlist created: https://open.spotify.com/playlist/0KXOqwKIBnd0dkHb3nWWOT?si=5655e24a429d4bef
 - Time: the code spent 45min and 23sec to make a 6076 songs playlist
 
-### To do
-- Save covers/hue values locally to fasten the process
-- Color-themed mini playlists
-- Add brightness and saturation as parameters to sort colors
-- Make a command-line tool
-
 #### Note
 Update the credentials in the script creating a new personal app from https://developer.spotify.com/dashboard:
 - client_id="YOUR_CLIENT_ID"
