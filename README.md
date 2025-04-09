@@ -14,6 +14,10 @@ This project allows you to create a new Spotify playlist where your saved songs 
 - Sorting by Hue: the tracks are sorted by their album cover's hue value to create a visually organized playlist
 - Playlist Creation: a new private playlist is created in your Spotify account, and the sorted tracks are added to it
 
+### Result
+- Playlist created: https://open.spotify.com/playlist/0KXOqwKIBnd0dkHb3nWWOT?si=5655e24a429d4bef
+- Time: the code spent 45min and 23sec to make a 6076 songs playlist
+
 ### To do
 - Save covers/hue values locally to fasten the process
 - Color-themed mini playlists
