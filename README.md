@@ -4,8 +4,7 @@ This project allows you to create a new Spotify playlist where your saved songs 
 ### How It Works
 - Go to https://developer.spotify.com/dashboard and create a new app with the Redirect URI "http://127.0.0.1:8888/callback"
 - Download the SpotifyColorSorting.py file
-- Change "cient_id" with the one in the new app you just created
-- Do the same thing with "client_secret"
+- Inside the script, change "client_id" and "client_secret" with the ones in the new app you just created
 - Run the script
 
 ### Result
