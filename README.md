@@ -13,5 +13,8 @@ This project lets you create a new Spotify playlist where the songs from another
 - Playlist created: [link](https://open.spotify.com/playlist/3gINh3VktzLMNTe9XfqOW5)
 - Time: the code spent about 10min making it
 
+#### NOTE
+The code is far from perfect, and any help would not only be welcomed but also greatly appreciated.
+
 ## Help me make Spotify see this idea be implemented
 #### https://community.spotify.com/t5/Live-Ideas/Sorting-songs-by-album-cover-s-colors/idi-p/6897183#M315934
