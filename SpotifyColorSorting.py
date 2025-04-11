@@ -1,3 +1,5 @@
+pip install spotipy requests pillow numpy scikit-learn scipy
+
 import spotipy 
 from spotipy.oauth2 import SpotifyOAuth
 import requests
