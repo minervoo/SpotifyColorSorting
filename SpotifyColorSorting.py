@@ -1,78 +1,87 @@
-pip install spotipy requests pillow numpy scikit-learn scipy
+import subprocess
+import sys
 
-import spotipy 
+libraries = ['spotipy', 'requests', 'colorthief', 'matplotlib', 'numpy']
+for lib in libraries:
+    try:
+        globals()[lib] = __import__(lib)
+    except ImportError:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", lib])
+
+import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import requests
-from io import BytesIO
-import colorsys
-from PIL import Image
+from colorthief import ColorThief
+from matplotlib import colors
 import numpy as np
-from sklearn.cluster import KMeans
-import scipy
-import scipy.cluster
-import binascii
 
+CLIENT_ID = '17d07a4723e1421aa83a78fe339a90c7'
+CLIENT_SECRET = 'e77892d5a4c94a40a73a7a6766df1161'
+PLAYLIST_ID = '0ybYd5Pq8ISeoThYXd9unc'
+REDIRECT_URI = 'http://127.0.0.1:8888/callback'
+SCOPE = "playlist-modify-public playlist-modify-private user-library-read"
 
-def get_saved_tracks(sp):
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID,
+                                               client_secret=CLIENT_SECRET,
+                                               redirect_uri=REDIRECT_URI,
+                                               scope=SCOPE))
+
+def get_tracks_from_playlist(playlist_id):
     tracks = []
-    results = sp.current_user_saved_tracks()
-    while results:
-        for item in results['items']:
-            track = item['track']
-            image_url = track['album']['images'][0]['url'] if track['album']['images'] else None
-            tracks.append((track['id'], track['name'], image_url))
-        results = sp.next(results) if results['next'] else None
+    offset = 0
+    while True:
+        results = sp.playlist_tracks(playlist_id, offset=offset)
+        tracks.extend(results['items'])
+        if len(results['items']) < 100:
+            break
+        offset += 100
     return tracks
 
-def get_dominant_hue(image_url):
-
-    NUM_CLUSTERS = 5
-
+def get_dominant_color(image_url):
     response = requests.get(image_url)
-    im = Image.open(BytesIO(response.content)).convert('RGB')
-    im = im.resize((150, 150))
-    ar = np.asarray(im)
-    shape = ar.shape
-    ar = ar.reshape(np.prod(shape[:2]), shape[2]).astype(float)
-
-    codes, dist = scipy.cluster.vq.kmeans(ar, NUM_CLUSTERS)
-
-    vecs, dist = scipy.cluster.vq.vq(ar, codes)
-    num_bins = len(codes)
-    counts, bins = np.histogram(vecs, bins=num_bins, range=(0, num_bins))
-
-    index_max = np.argmax(counts)
-    peak = codes[index_max]
-    colour = binascii.hexlify(bytearray(int(c) for c in peak)).decode('ascii')
-    rgb = tuple(int(colour[i:i+2], 16) for i in (0, 2, 4))
-    hue = colorsys.rgb_to_hsv(rgb[0], rgb[1], rgb[2])
+    with open('temp_image.jpg', 'wb') as file:
+        file.write(response.content)
     
-    return hue
+    color_thief = ColorThief('temp_image.jpg')
+    dominant_color = color_thief.get_color(quality=1)
+    hsl_color = rgb_to_hsl(dominant_color)
+    return hsl_color
 
-def create_ordered_playlist(sp, user_id, tracks):
-    playlist = sp.user_playlist_create(user_id, "Sorted by Cover Hue", public=False)
-    track_ids = [track[0] for track in tracks]
-    chunk_size = 100
-    for i in range(0, len(track_ids), chunk_size):
-        chunk = track_ids[i:i + chunk_size]
-        sp.playlist_add_items(playlist['id'], chunk)
-    print("Playlist created successfully!")
+def rgb_to_hsl(rgb):
+    rgb = np.array(rgb) / 255.0
+    h, s, v = colors.rgb_to_hsv(rgb)  
+    l = (2 - s) * v / 2
+    if l != 0:
+        s = (2 * (1 - l / v)) * s
+    h = h * 360
+    s = s * 100
+    l = l * 100
+    return (h, s, l)
+
+def sort_tracks_by_color(tracks):
+    track_colors = []
+    for track in tracks:
+        album = track['track']['album']
+        image_url = album['images'][0]['url']
+        dominant_color = get_dominant_color(image_url)
+        track_colors.append((track, dominant_color))
+    
+    sorted_tracks = sorted(track_colors, key=lambda x: x[1][0])
+    return [track[0] for track in sorted_tracks]
+
+def create_sorted_playlist(sorted_tracks):
+    user_id = sp.current_user()['id']
+    playlist = sp.user_playlist_create(user_id, 'Playlist Ordered by Color', public=True)
+    playlist_id = playlist['id']
+
+    for i in range(0, len(sorted_tracks), 100):
+        track_ids = [track['track']['id'] for track in sorted_tracks[i:i+100]]
+        sp.playlist_add_items(playlist_id, track_ids)
 
 def main():
-    sp = spotipy.Spotify(auth_manager=SpotifyOAuth(
-        client_id="YOUR_CLIENT_ID",
-        client_secret="YOUR_CLIENT_SECRET",
-        redirect_uri="http://127.0.0.1:8888/callback",
-        scope="user-library-read playlist-modify-private"
-    ))
-    
-    user_id = sp.me()['id']
-    
-    tracks = get_saved_tracks(sp)
-    tracks_with_hue = [(t[0], t[1], get_dominant_hue(t[2])) for t in tracks if t[2]]
-    tracks_with_hue.sort(key=lambda x: x[2])
-    
-    create_ordered_playlist(sp, user_id, tracks_with_hue)
+    tracks = get_tracks_from_playlist(PLAYLIST_ID)
+    sorted_tracks = sort_tracks_by_color(tracks)
+    create_sorted_playlist(sorted_tracks)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     main()
