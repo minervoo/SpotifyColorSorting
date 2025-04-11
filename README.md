@@ -10,7 +10,7 @@ This project lets you create a new Spotify playlist where the songs from another
 - Run the script
 
 ### Result
-- Playlist created: [link](https://open.spotify.com/playlist/3gINh3VktzLMNTe9XfqOW5)
+- Playlist created: [link](https://open.spotify.com/playlist/3gINh3VktzLMNTe9XfqOW5?si=9e9056f168f2478b)
 - Time: the code spent about 10min making it
 
 #### Visual result:
