@@ -16,6 +16,9 @@ This project lets you create a new Spotify playlist where the songs from another
 #### Visual result:
 ![Visual result](https://github.com/armeliens/SpotifyColorSorting/blob/main/Visual%20result.png)
 
+### To Do List
+- Color-themed mini playlists
+- Command line tool
 
 #### NOTE
 The code is far from perfect, and any help would not only be welcomed but also greatly appreciated.
