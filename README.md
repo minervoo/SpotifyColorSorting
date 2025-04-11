@@ -2,7 +2,7 @@
 This project lets you create a new Spotify playlist where the songs from another playlist are sorted by the dominant color of their album covers. The script pulls album covers from your Spotify library, analyzes the main color of each cover, and then arranges the tracks in the playlist based on this color order, giving you a visually unique music experience.
 
 ### How It Works
-- Go to https://developer.spotify.com/dashboard
+- Go to [Spotify for Developers](https://developer.spotify.com/dashboard)
 - Create a new app with the Redirect URI "http://127.0.0.1:8888/callback" (the other options are not relevant)
 - Download the SpotifyColorSorting.py file
 - Inside the script, change "CLIENT_ID" and "CLIENT_SECRET" with the ones in the new app you just created
