@@ -12,6 +12,8 @@ This project lets you create a new Spotify playlist where the songs from another
 ### Result
 - Playlist created: [link](https://open.spotify.com/playlist/3gINh3VktzLMNTe9XfqOW5)
 - Time: the code spent about 10min making it
+
+#### Visual result:
 ![Visual result](https://github.com/armeliens/SpotifyColorSorting/blob/main/Visual%20result.png)
 
 
