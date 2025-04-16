@@ -5,7 +5,7 @@ This project lets you create a new Spotify playlist where the songs from another
 The code is far from perfect, and any help would not only be welcomed but also greatly appreciated.
 
 ### How It Works
-- Windows button + R
+- Open "Run" with Windows button + R
 - Type "cmd"
 - Run this line: pip install spotipy requests colorthief matplotlib numpy
 - Go to [Spotify for Developers](https://developer.spotify.com/dashboard)
