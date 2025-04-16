@@ -1,13 +1,3 @@
-import subprocess
-import sys
-
-libraries = ['spotipy', 'requests', 'colorthief', 'matplotlib', 'numpy']
-for lib in libraries:
-    try:
-        globals()[lib] = __import__(lib)
-    except ImportError:
-        subprocess.check_call([sys.executable, "-m", "pip", "install", lib])
-
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import requests
@@ -15,9 +5,9 @@ from colorthief import ColorThief
 from matplotlib import colors
 import numpy as np
 
-CLIENT_ID = '17d07a4723e1421aa83a78fe339a90c7'
-CLIENT_SECRET = 'e77892d5a4c94a40a73a7a6766df1161'
-PLAYLIST_ID = '0ybYd5Pq8ISeoThYXd9unc'
+CLIENT_ID = 'your_client_ID'
+CLIENT_SECRET = 'your_client_secret'
+PLAYLIST_ID = 'your_playlist_ID'
 REDIRECT_URI = 'http://127.0.0.1:8888/callback'
 SCOPE = "playlist-modify-public playlist-modify-private user-library-read"
 
