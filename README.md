@@ -1,5 +1,6 @@
 # Spotify Playlist by Album Cover Hue
-This project lets you create a new Spotify playlist where the songs from another playlist are sorted by the dominant color of their album covers. The script pulls album covers from your Spotify library, analyzes the main color of each cover, and then arranges the tracks in the playlist based on this color order, giving you a visually unique music experience.
+This little project lets you create a new Spotify playlist where the songs from any other playlist are sorted by the dominant color of their album covers.
+The script pulls album covers with the Spotify API, analyzes the main color of each cover and then arranges the tracks in the playlist based on this color order, giving you a visually unique music experience.
 
 #### NOTE
 The code is far from perfect, and any help would not only be welcomed but also greatly appreciated.
