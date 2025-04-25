@@ -5,7 +5,7 @@ The script pulls album covers with the Spotify API, analyzes the main color of e
 - The code is far from perfect, and any help would not only be welcomed but also greatly appreciated
 - Big thanks to [Minervoo](https://github.com/minervoo) for the help!!
 
-### HOW IT WORKS
+### HOW TO USE THE CODE
 - Go to [Spotify for Developers](https://developer.spotify.com/dashboard)
 - Create a new app with the Redirect URI "http://127.0.0.1:8888/callback" (the other options are not relevant)
 - Download the [SpotifyColorSorting.py file](https://github.com/armeliens/SpotifyColorSorting/blob/main/SpotifyColorSorting.py) (the download button is on the top right of the code)
