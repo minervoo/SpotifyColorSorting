@@ -103,7 +103,11 @@ def sort_tracks_by_color(tracks, progress, task):
         progress.update(task, description="Sorting by color")
         progress.advance(task)
 
-    sorted_tracks = sorted(track_colors, key=lambda x: x[1][0])
+    # Sort by hue, then by lightness, then by saturation for better color grouping
+    sorted_tracks = sorted(
+        track_colors,
+        key=lambda x: (x[1][0], x[1][2], x[1][1])  # (hue, lightness, saturation)
+    )
     return [track[0] for track in sorted_tracks]
 
 
