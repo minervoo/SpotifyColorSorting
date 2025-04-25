@@ -21,7 +21,8 @@ The script pulls album covers with the Spotify API, analyzes the main color of e
 ### METHODS FOR SORTING TO CHECK OUT
 - Most common color (but what if there are 2 colors both dominant but completely different?)
 - Average color (but how to find the average of an image that is half blue and half orange?)
-- OkLAB / OkLCH
+- Supervisioned learning: train a model based on a dataset of already sorted colors
+- LAB / OkLAB / OkLCH
 - [TV Ambilight using Arduino](https://www.instructables.com/Make-your-own-TV-ambilight-using-Arduino/)
 - [Gamma / sRGB encoding](https://www.gimp-forum.net/Thread-What-is-the-gamma-encoding-and-why-are-my-color-computations-wrong)
 - [Color quantization](https://en.wikipedia.org/wiki/Color_quantization)
