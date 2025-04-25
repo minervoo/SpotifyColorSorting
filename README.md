@@ -28,6 +28,7 @@ The script pulls album covers with the Spotify API, analyzes the main color of e
 - [Color quantization](https://en.wikipedia.org/wiki/Color_quantization)
 
 ### TO DO LIST
+- Progression bar with %
 - Color-themed mini playlists
 - Command line tool
 
