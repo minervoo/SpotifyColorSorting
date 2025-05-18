@@ -20,25 +20,5 @@ The script pulls album covers with the Spotify API, analyzes the main color of e
 ### VISUAL RESULT
 ![Visual result](https://github.com/armeliens/SpotifyColorSorting/blob/main/Visual%20result.png)
 
-### METHODS FOR SORTING TO CHECK OUT
-#### Most Common Color
-- Pro: Simple and fast to compute; captures the most dominant hue in an image.
-- Con: Fails with images that have multiple strong colors—only one dominant color is considered.
-#### Average Color
-- Pro: Very efficient; provides a rough “summary” color of the entire image.
-- Con: Visually misleading in images with contrasting halves (e.g., blue + orange = brown-ish).
-#### Supervised Learning
-- Pro: Allows sorting based on human-defined categories or aesthetics; flexible and powerful.
-- Con: Requires labeled data and training; results may depend heavily on subjective criteria.
-#### LAB / OkLAB / OkLCH
-- Pro: Perceptually uniform—color distances reflect how humans perceive color differences.
-- Con: More complex to implement and requires color space conversion.
-#### Gamma / sRGB Encoding
-- Pro: Proper decoding ensures accurate averaging, blending, and comparison of colors.
-- Con: Often overlooked—working directly in sRGB without gamma correction can yield incorrect results.
-#### Color Quantization
-- Pro: Extracts a compact set of representative colors; great for clustering or palette-based sorting.
-- Con: Ignores spatial structure and can miss subtle tonal differences.
-
 ### Help me make Spotify see this idea be implemented
 #### https://community.spotify.com/t5/Live-Ideas/Sorting-songs-by-album-cover-s-colors/idi-p/6897183#M315934
